@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="{CSS_PATH}/bootstrap.css" />
+	<link rel="stylesheet" href="{CSS_PATH}/index/reg.css" />
+	<script src="{JS_PATH}/admin/jquery.min.js"></script>
+	<script src="{JS_PATH}/jquery.validate.min.js"></script>
+	<script src="{JS_PATH}/index/reg.js"></script>
+	<body>
+		<div class="box">
+			<div class="top">
+				<h3>欢迎注册</h3>
+				<span>已有账户请<a href="index.php?m=index&f=index&a=login">点击登录</a></span>
+				<a href="index.php" style="margin-left:40px">返回首页</a>
+			</div>
+			<div class="foot">
+				<form action="index.php?m=index&f=user&a=regUser" method="post" id="form">
+					用户名：<input type="text" name="uname" class="form-control" id="uname" autocomplete="off"/>
+					<label id="uname-error" class="error" for="uname"></label><br />
+					密　码：<input type="password" class="form-control" name="upass" id="upass" autocomplete="off" />
+					<label id="upass-error" class="error" for="upass"></label><br />
+					再次输入密码：<input type="password" class="form-control" name="upass1" id="upass1" autocomplete="off" />
+					<label id="upass1-error" class="error" for="upass1"></label><br />
+					<input type="submit" value="立即注册" class="btn btn-default" name="btn"/><br><br>
+				</form>
+			</div>
+			
+			
+		</div>
+	</body>
+</html>

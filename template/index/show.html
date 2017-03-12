@@ -1,0 +1,210 @@
+{include file="index/header.html"}
+<link rel="stylesheet" href="{CSS_PATH}/bootstrap.css">
+<link rel="stylesheet" href="{CSS_PATH}/mui.min.css">
+<link rel="stylesheet" href="{CSS_PATH}/index/show.css">
+<script src="{JS_PATH}/admin/jquery.min.js"></script>
+<script src="{JS_PATH}/index/show.js"></script>
+    <div class="container">
+        <h1 class="text-center">
+			{$result["stitle"]}
+          <br>
+            <span class="author">作者:
+		        <span class="name author-name" uid2="{$result['uid']}" sid="{$result['sid']}">
+					{$result["uname"]}
+		        </span>
+            </span>
+            <span class="time">时间:
+	            <span class="date">
+	                {$result["stime"]}
+	            </span>
+            </span>
+        </h1>
+        
+        <div class="line"></div>
+        
+        <div class="con">
+     	{$result["scon"]}
+        </div>
+    
+		<div class="line"></div>
+        <div class="pay">
+        	
+		   
+		 
+		    {if $guanzhu=="me"}
+		     
+		    {elseif $guanzhu=="true"}
+		    <a href="javascript:;" class="btn btn-success guanzhu" style="display: none">关注</a>
+      		<a href="javascript:;" class="btn btn-success quxiaoguanzhu">取消关注</a>
+		  	{elseif $guanzhu=="false"}
+		  	<a href="javascript:;" class="btn btn-success guanzhu" >关注</a>
+      		<a href="javascript:;" class="btn btn-success quxiaoguanzhu" style="display: none">取消关注</a>
+      		{elseif $guanzhu=="nosession"}
+      		<a href="javascript:;" class="btn btn-success guanzhu" >关注</a>
+      		<a href="javascript:;" class="btn btn-success quxiaoguanzhu" style="display: none">取消关注</a>
+		    {/if}
+
+		    
+      		{if $love=="me"}
+		     
+		    {elseif $love=="false"}
+        	<a href="javascript:;" class="btn btn-success loveBtn">收藏</a>
+        	<a href="javascript:;" class="btn btn-success loveCancel" style="display:none">取消收藏</a>
+        	{elseif $love=="true"}
+        	<a href="javascript:;" class="btn btn-success loveBtn" style="display:none">收藏</a>
+        	<a href="javascript:;" class="btn btn-success loveCancel">取消收藏</a>
+        	{elseif $love=="nosession"}
+        	<a href="javascript:;" class="btn btn-success loveBtn">收藏</a>
+        	<a href="javascript:;" class="btn btn-success loveCancel" style="display:none">取消收藏</a>
+        	{/if}
+        </div>
+        
+
+        <div class="submit submit1 leave">
+	        <textarea  class="form-control" rows="3"></textarea>
+	        <a href="javascript:;" class="btn btn-primary">留言</a>
+	        <a href="javascript:;" class="btn btn-danger">取消</a>
+        </div>
+
+        <div class="message">
+            <h3>共有<span>5</span>条留言</h3>
+            <div class="line2"></div> 
+            <div class="liuyanbox">
+                <div class="liuyan">
+                <div class="userinfo">
+                    <div class="phone">
+					头像
+                    </div>
+                    <div class="info">
+	                    <div class="name1">xxxxx</div>
+	                    <div class="time">2000-20-20</div>
+                    </div>
+                </div>
+                <div class="liuyancon">
+                    <p>sakjd</p>
+                    <p>sakjd</p>
+                    <p>sakjd</p>
+                    <p>sakjd</p>
+                </div>
+                <a href="javascript:;" class="btn btn-default replyBtn replyBtn1">回复1</a>
+            </div>
+            <div class="submit submit2">
+                <textarea  class="form-control" rows="3"></textarea><br>
+                <a href="javascript:;" class="btn btn-primary">回复</a>
+                <a href="javascript:;" class="btn btn-danger">取消</a>
+            </div>
+            
+            <div class="reply">
+                <div class="replylist">
+                    <div class="replycon">
+                    	<div class="phone">
+							头像
+                    	</div>
+                       <div class="xinxi">
+                    		<span class="name1">xxxx:</span>
+                       	 	<div class="time time1">2000-22-22</div>
+                    	</div>
+                        <div class="replyinfo">
+		                    gsdgdfsd
+		                    fhdfhdfhdf
+		                    ddbgdgsgs
+                        </div>
+                    </div>
+	                <div class="replystate">
+	                    
+	                    <a href="javascript:;" class="btn btn-default replyBtn replyBtn2">回复2</a>
+	                </div>
+            	</div>
+          	</div>
+
+            <div class="submit submit2">
+                <textarea  class="form-control" rows="3"></textarea><br>
+                <a href="javascript:;" class="btn btn-primary">回复</a>
+                <a href="javascript:;" class="btn btn-danger">取消</a>
+            </div>
+            
+              
+            <!---->
+            <div class="line2"></div> 
+			<div class="liuyanbox">
+                <div class="liuyan">
+                <div class="userinfo">
+                    <div class="phone">
+					头像
+                    </div>
+                    <div class="info">
+	                    <div class="name">xxxx</div>
+	                    <div class="time">2000-20-20</div>
+                    </div>
+                </div>
+                <div class="liuyancon">
+                    <p>sakjd</p>
+                    <p>sakjd</p>
+                    <p>sakjd</p>
+                    <p>sakjd</p>
+                </div>
+                <a href="javascript:;" class="btn btn-default replyBtn replyBtn1">回复1</a>
+            </div>
+             <div class="submit submit2">
+                <textarea  class="form-control" rows="3"></textarea><br>
+                <a href="javascript:;" class="btn btn-primary ">回复</a>
+                <a href="javascript:;" class="btn btn-danger">取消</a>
+            </div>
+            
+            <div class="reply">
+                <div class="replylist">
+                    <div class="replycon">
+                    	<div class="phone">
+							头像
+                    	</div>
+                    	<div class="xinxi">
+                    		<span class="name1">xxxx:</span>
+                       	 	<div class="time time1">2000-22-22</div>
+                    	</div>
+                        
+                        <div class="replyinfo">
+		                    gsdgdfsd
+		                    fhdfhdfhdf
+		                    ddbgdgsgs
+                        </div>
+                    </div>
+	                <div class="replystate">
+	                    
+	                    <a href="javascript:;" class="btn btn-default replyBtn replyBtn2">回复2</a>
+	                </div>
+            	</div>
+          	</div>
+
+              <div class="submit submit2">
+
+                  <textarea  class="form-control" rows="3"></textarea><br>
+                  <a href="javascript:;" class="btn btn-primary">回复</a>
+                  <a href="javascript:;" class="btn btn-danger">取消</a>
+              </div>              
+              
+              
+              
+              
+              
+              
+              
+          </div>
+          
+        
+          
+          
+          
+          
+          
+
+      </div>
+
+  </div>
+
+   <div class="mask">
+
+   </div>
+   {include file="index/notice.html"}
+   <div class="notice">操作成功</div>
+	</body>
+</html>

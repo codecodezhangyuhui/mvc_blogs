@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="{CSS_PATH}/bootstrap.css" />
+	<link rel="stylesheet" href="{CSS_PATH}/admin/lookShows.css" />
+
+	<body>
+		<div class="stitle">
+			<span>{$result[0]["stitle"]}</span>
+			<a href="index.php?m=admin&f=artShows&a=shows">返回</a>
+		</div>
+		<div class="scon">
+			<p>{$result[0]["scon"]}</p>
+		</div>
+		<div class="status">
+			<form action="index.php?m=admin&f=artShows&a=status" method="post">
+				<div class="radio">
+					<label>
+					    <input type="radio" name="status" id="optionsRadios1" value="0" {if $result[0]["status"]==0}checked{/if}>
+					    未审核
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+					    <input type="radio" name="status" id="optionsRadios2" value="1" {if $result[0]["status"]==1}checked{/if}>
+					    审核中
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+					    <input type="radio" name="status" id="optionsRadios2" value="2"  {if $result[0]["status"]==2}checked{/if}>
+					    未通过
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+					    <input type="radio" name="status" id="optionsRadios2" value="3"  {if $result[0]["status"]==3}checked{/if}>
+					    通过审核
+					</label>
+				</div>
+				<input type="hidden" name="sid" value="{$result[0]['sid']}"/>
+				<input type="submit" value="提交状态"  class="btn btn-default"/>
+			</form>
+		</div>
+	
+	</body>
+</html>

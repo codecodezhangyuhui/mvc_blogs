@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="{CSS_PATH}/admin/index.css"/>
+	<script src="{JS_PATH}/admin/jquery.min.js"></script>
+	<script src="{JS_PATH}/admin/index.js"></script>
+	<body style="background-image:url({IMG_PATH}/bjtt.jpg);background-size:100% 100%;">
+		<div class="header">
+			<h1>{$aname}欢迎登录博客管理系统</h1>
+			<a href="index.php?m=admin&f=index&a=logout">退出</a>
+		</div>
+		<div class="main">
+			<div class="left">
+				<ul class="menu">
+					<li class="opt">用户管理
+						<ul class="son">
+							<li><a href="index.php?m=admin&f=category&a=addUser" target="right">添加用户</a></li>
+							<li><a href="index.php?m=admin&f=category&a=manageUser" target="right">管理用户</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="menu">
+					<li class="opt">分类管理
+						<ul class="son">
+							<li><a href="index.php?m=admin&f=category&a=addClassIfy" target="right">添加分类</a></li>
+							<li><a href="index.php?m=admin&f=addClassIfy&a=controlClassIfy" target="right">管理分类</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="menu">
+					<li class="opt">内容管理
+						<ul class="son">
+							<li><a href="index.php?m=admin&f=artShows&a=addShows" target="right">添加内容</a></li>
+							<li><a href="index.php?m=admin&f=artShows&a=shows" target="right">管理内容</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="menu">
+					<li class="opt">推荐位管理
+						<ul class="son">
+							<li><a href="TJTJW.php" target="right">添加推荐位</a></li>
+							<li><a href="GLTJW.php" target="right">管理推荐位</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="right">
+				<iframe src="" frameborder="0" name="right"></iframe>
+			</div>
+		</div>
+	</body>
+</html>

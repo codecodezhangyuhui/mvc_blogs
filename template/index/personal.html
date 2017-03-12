@@ -1,0 +1,54 @@
+{include file="index/header.html"}
+<link rel="stylesheet" href="{CSS_PATH}/bootstrap.css">
+<link rel="stylesheet" href="{CSS_PATH}/mui.min.css">
+<link rel="stylesheet" href="{CSS_PATH}/index/personal.css" />
+<script src="{JS_PATH}/index/upload.js"></script>
+<script src="{JS_PATH}/index/personal.js"></script>
+<form action="index.php?m=index&f=user&a=bianji" id="form" method="post">
+	<div class="container main">
+	    <div class="row">
+	        <div class="col-sm-8 main-left">
+		       	<span>姓名</span><input type="text" name="bname" value="{$result['bname']}"/>
+			       	<div class="radio">
+			       		<span>性别　</span>
+						<label>
+						    <input type="radio" name="sex" id="optionsRadios1" value="1" {if $result['sex']=="1"}checked{/if}>
+						  	男
+						</label>
+					</div>
+					<div class="radio sex">
+						<label>
+						    <input type="radio" name="sex" id="optionsRadios1" value="2"  {if $result['sex']=="2"}checked{/if}>
+						  	女
+						</label>
+					</div>
+					<div class="radio sex">
+						<label>
+						    <input type="radio" name="sex" id="optionsRadios1" value="0" {if $result['sex']=="2"}checked{/if}>
+						  	保密
+						</label>
+					</div>
+				<span>联系方式</span><input type="text" name="contact" value="{$result['contact']}"/>
+				<span>邮箱</span><input type="text" name="email" value="{$result['email']}"/>
+				<span>个人简介</span><textarea name="introduce" rows="" cols="">{$result['introduce']}</textarea>
+				<input type="submit" value="保存" id="btn"/>
+	        </div>
+	        <div class="col-sm-4 main-right">
+	            <div class="list-group"">
+					<a href="javascript:;" class="file">上传头像
+						<input type="file" name="file" class="files">
+					</a>
+					<div class="imgs">
+						<img src="{$result['photo']}" alt="" class="img"/>
+						<div class="jindu">
+							<div class="progress"></div>
+						</div>	
+					</div>
+	           </div>
+	        </div>
+	    </div>
+	</div>
+	<input type="hidden" name="imgurl" id="imgurl"/>
+</form>
+	</body>
+</html>

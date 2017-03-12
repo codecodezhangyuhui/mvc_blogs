@@ -1,0 +1,104 @@
+{include file="index/header.html"}
+<link rel="stylesheet" href="{CSS_PATH}/bootstrap.css">
+<link rel="stylesheet" href="{CSS_PATH}/mui.min.css">
+<script src="{JS_PATH}/admin/jquery.min.js"></script>
+<script src="{JS_PATH}/mui.js"></script>
+<script src="{JS_PATH}/index/index.js"></script>
+<link rel="stylesheet" href="{CSS_PATH}/bootstrap.css">
+<link rel="stylesheet" href="{CSS_PATH}/mui.min.css">
+<link rel="stylesheet" href="{CSS_PATH}/index/index.css" />
+<style>
+	.clearmoren span,.clearmoren p,.clearmoren a{
+		font-size:14px!important;
+		color:#000!important;
+		background-color:rgba(0,0,0,0)!important ;
+		cursor: pointer;
+	}
+</style>
+<div class="mui-slider banner">
+    <div class="mui-slider-group mui-slider-loop imgSize">
+	    <!--支持循环，需要重复图片节点-->
+	    <div class="mui-slider-item mui-slider-item-duplicate imgSize"><a href="#"><img src="{IMG_PATH}/banner1.jpeg" alt="" /></a></div>
+	    <div class="mui-slider-item imgSize"><a href="#"><img src="{IMG_PATH}/banner2.jpeg" alt="" /></a></div>
+	    <div class="mui-slider-item imgSize"><a href="#"><img src="{IMG_PATH}/banner3.jpeg" alt="" /></a></div>
+	    <div class="mui-slider-item imgSize"><a href="#"><img src="{IMG_PATH}/banner4.jpeg" alt="" /></a></div>
+	    <div class="mui-slider-item imgSize"><a href="#"><img src="{IMG_PATH}/banner5.jpeg" alt="" /></a></div>
+	    <!--支持循环，需要重复图片节点-->
+	    <div class="mui-slider-item mui-slider-item-duplicate imgSize"><a href="#"><img src="{IMG_PATH}/banner1.jpeg" alt="" /></a></div>
+    </div>
+</div>
+<!--文章动态-->
+<div class="container main">
+    <div class="row">
+        <div class="col-sm-8 main-left neirong">
+           
+            {foreach $result as $v}
+            <div class="usercon">
+            	 <!--头像部分-->
+	            <div class="container-fluid">
+	                <div class="row user">
+	                    <div class="photo">
+	                    	{if $v['photo']}
+	                 		<img src="{$v['photo']}" alt="" />
+	                 		{else}
+	                 		<img src="{IMG_PATH}/bjt.jpg" alt="" />
+	                 		{/if}
+	                    </div>
+	                    <div class="col-sm-2 photoes username">
+	                        <a href="index.php?m=index&f=index&a=you&id={$v['uid']}">{$v["uname"]}</a>
+	                    </div>
+	                    <div class="col-sm-2 photoes times">
+	                       <span>{$v["stime"]}</span>
+	                    </div>
+	                </div>
+	            </div>
+	            <!--具体的内容-->
+	            <ul class="mui-table-view clearmoren mui-table-view-cell" style="max-height: 116px;">
+	                <li class="mui-table-view-cell mui-media">
+	                    <a href="index.php?m=index&f=index&a=show&id={$v['sid']}">
+	                        <!--<img class="mui-media-object mui-pull-right " src="http://placehold.it/40x30">-->
+	                        <div class="mui-media-body">
+	                       		 <span class="stitle">{$v["stitle"]}</span>
+	                            <p class="mui-ellipsis scon" >{$v["scon"]}</p>
+	                        </div>
+	                    </a>
+	                </li>
+	            </ul>
+            </div>
+            {/foreach}
+        </div>
+        
+        
+        
+        <div class="col-sm-4 main-right">
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    浏览排行榜
+                </a>
+                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item">Morbi leo risus</a>
+                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item">Vestibulum at eros</a>
+            </div>
+
+
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    关注排行榜
+                </a>
+                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item">Morbi leo risus</a>
+                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item">Vestibulum at eros</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer">
+	
+</div>
+
+	</body>
+</html>

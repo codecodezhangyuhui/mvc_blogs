@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>登录页</title>
+</head>
+<link rel="stylesheet" href="{CSS_PATH}/admin/login.css" />
+<body>
+	<div class="box" style="background-image: url({IMG_PATH}/bjtt.jpg);background-size:100% 100% ;">
+		<div class="top">
+			<h3>博客后台登录页面</h3>
+		</div>
+		<form action="index.php?m=admin&f=index&a=check" method="post">
+			用户名：<input type="text" name="aname" class="aname"/></p>
+			密　码：<input type="password" name="apass" class="apass" autocomplete="off"/></p>
+			验证码：<input type="text" name="code" autocomplete="off"/><p>
+			<span>看不清点击换一张</span><img src="{HTTP_URL}/index.php?m=admin&f=index&a=code" alt="" onclick="this.src='{HTTP_URL}/index.php?m=admin&f=index&a=code&'+Math.random()"/></p>
+			<input type="submit" value="登录" class="sub"/></p>
+		</form>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="{CSS_PATH}/bootstrap.css" />
+	<link rel="stylesheet" href="{CSS_PATH}/index/addUser.css" />
+	<body style="background-color: rgba(0, 0, 0, 0);">
+		<div>
+			<form action="index.php?m=admin&f=user&a=edit" method="post">
+				用户id：<input type="text" disabled="disabled" name="uid" class="form-control" value="{$uid}"/></p>
+				用户名：<input type="text" name="uname" class="form-control" value="{$uname}"/></p>
+				密　码：<input type="password" name="upass" class="form-control" value="{$upass}"/></p>
+				<input type="hidden" name="uid" value="{$uid}" />
+				<input type="submit" value="修改用户"  class="btn btn-default"/>
+			</form>
+		</div>
+		
+	</body>
+</html>

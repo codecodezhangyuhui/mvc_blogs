@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="{CSS_PATH}/bootstrap.css" />
+	<link rel="stylesheet" href="{CSS_PATH}/admin/manageUser.css" />
+	<link rel="stylesheet" href="{CSS_PATH}/admin/controlShows.css" />
+	<body style="background-color:rgba(0,0,0,0); padding: 20px 20px;">
+		<table class="table table-bordered" id="center">
+			<tr>
+				<th id="center">sid</th>
+				<th id="center">标题</th>
+				<th id="center">所属分类</th>
+				<th id="center">作者</th>
+				<th id="center">点击数</th>
+				<th id="center">点赞数</th>
+				<th id="center">发布时间</th>
+				<th id="center">状态</th>
+				<th id="center">操作</th>
+			</tr>
+			<tbody>
+				{foreach $result as $v}
+				<tr>
+					<td>{$v["sid"]}</td>
+					<td>{$v["stitle"]}</td>
+					<td>{$v["cname"]}</td>
+					<td>{$v["uname"]}</td>
+					<td>{$v["hits"]}</td>
+					<td>{$v["good"]}</td>
+					<td>{$v["stime"]}</td>
+					<td>{if $v["status"]==0}
+						未审核
+						{elseif $v["status"]==1}
+						审核中
+						{elseif $v["status"]==2}
+						审核未通过
+						{elseif $v["status"]==3}
+						审核通过
+						{/if}
+					</td>
+					<td>
+						<a href="index.php?m=admin&f=artShows&a=delShows&id={$v['sid']}">删除</a>
+						<a href="index.php?m=admin&f=artShows&a=lookShows&id={$v['sid']}">查看</a>
+					</td>
+				</tr>
+				{/foreach}
+			</tbody>
+		</table>
+		<div class="pages" style="text-align: center;">{$pages}</div>
+		
+	</body>
+</html>

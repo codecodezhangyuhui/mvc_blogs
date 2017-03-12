@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{CSS_PATH}/bootstrap.css">
+    <link rel="stylesheet" href="{CSS_PATH}/index/write.css" />
+    <script src="{EDIT_PATH}/ueditor.config.js"></script>
+    <script src="{EDIT_PATH}/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{EDIT_PATH}/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+	<div class="header">
+		
+		<span class="bianji">文章编辑页</span>
+		<span class="user">欢迎<span id="uname">{$uname}</span>编辑自己的文章</span>
+		<a href="index.php" class="return">返回首页</a>
+	</div>
+	<div class="foot">
+		<form action="index.php?m=index&f=art&a=add" method="post">
+		
+		    <div class="form-group">
+		        <label for="cid">选择分类</label>
+		        <select class="form-control" name="cid" id="cid">
+		            <option value="0">一级分类</option>
+		          {$tree}
+		        </select>
+		    </div>
+		
+		
+		    <div class="form-group">
+		        <label for="stitle">文章标题</label>
+		        <input type="text" class="form-control" id="stitle" name="stitle" placeholder="标题">
+		    </div>
+		
+		    <div class="form-group">
+		        <label for="scon">文章内容</label>
+		        <script id="editor" type="text/plain" style="width:1024px;height:500px;" name="scon"></script>
+		    </div>
+		
+		    <button type="submit" class="btn btn-default" style="margin-bottom:20px">提交</button>
+		</form>
+	</div>
+	<script>
+	    var ue = UE.getEditor('editor');
+	</script>
+</body>
+</html>

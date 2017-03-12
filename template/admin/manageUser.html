@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="{CSS_PATH}/bootstrap.css" />
+	<link rel="stylesheet" href="{CSS_PATH}/admin/manageUser.css" />
+	<body style="background-color:rgba(0,0,0,0); padding: 20px 20px;">
+		<table class="table table-bordered" id="center">
+			<tr>
+				<th id="center">uid</th>
+				<th id="center">用户名</th>
+				<th id="center">操作</th>
+			</tr>
+			<tbody>
+				{foreach $result as $v}
+				<tr>
+					<td>{$v["uid"]}</td>
+					<td>{$v["uname"]}</td>
+					<td>
+						<a href="index.php?m=admin&f=category&a=delUser&id={$v['uid']}">删除</a>
+						<a href="index.php?m=admin&f=category&a=editUser&id={$v['uid']}">编辑</a>
+					</td>
+				</tr>
+				{/foreach}
+			</tbody>
+		</table>
+	</body>
+</html>
