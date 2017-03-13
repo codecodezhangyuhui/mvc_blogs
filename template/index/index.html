@@ -15,18 +15,18 @@
 		cursor: pointer;
 	}
 </style>
-<div class="mui-slider banner">
+<!--<div class="mui-slider banner">
     <div class="mui-slider-group mui-slider-loop imgSize">
-	    <!--支持循环，需要重复图片节点-->
+	  
 	    <div class="mui-slider-item mui-slider-item-duplicate imgSize"><a href="#"><img src="{IMG_PATH}/banner1.jpeg" alt="" /></a></div>
 	    <div class="mui-slider-item imgSize"><a href="#"><img src="{IMG_PATH}/banner2.jpeg" alt="" /></a></div>
 	    <div class="mui-slider-item imgSize"><a href="#"><img src="{IMG_PATH}/banner3.jpeg" alt="" /></a></div>
 	    <div class="mui-slider-item imgSize"><a href="#"><img src="{IMG_PATH}/banner4.jpeg" alt="" /></a></div>
 	    <div class="mui-slider-item imgSize"><a href="#"><img src="{IMG_PATH}/banner5.jpeg" alt="" /></a></div>
-	    <!--支持循环，需要重复图片节点-->
+	  
 	    <div class="mui-slider-item mui-slider-item-duplicate imgSize"><a href="#"><img src="{IMG_PATH}/banner1.jpeg" alt="" /></a></div>
     </div>
-</div>
+</div>-->
 <!--文章动态-->
 <div class="container main">
     <div class="row">
@@ -45,7 +45,11 @@
 	                 		{/if}
 	                    </div>
 	                    <div class="col-sm-2 photoes username">
+	                    	{if $v["bname"]}
+	                        <a href="index.php?m=index&f=index&a=you&id={$v['uid']}">{$v["bname"]}</a>
+	                        {else}
 	                        <a href="index.php?m=index&f=index&a=you&id={$v['uid']}">{$v["uname"]}</a>
+	                        {/if}
 	                    </div>
 	                    <div class="col-sm-2 photoes times">
 	                       <span>{$v["stime"]}</span>
@@ -56,9 +60,8 @@
 	            <ul class="mui-table-view clearmoren mui-table-view-cell" style="max-height: 116px;">
 	                <li class="mui-table-view-cell mui-media">
 	                    <a href="index.php?m=index&f=index&a=show&id={$v['sid']}">
-	                        <!--<img class="mui-media-object mui-pull-right " src="http://placehold.it/40x30">-->
 	                        <div class="mui-media-body">
-	                       		 <span class="stitle">{$v["stitle"]}</span>
+	                       		<span class="stitle">{$v["stitle"]}</span>
 	                            <p class="mui-ellipsis scon" >{$v["scon"]}</p>
 	                        </div>
 	                    </a>
@@ -75,30 +78,16 @@
                 <a href="#" class="list-group-item active">
                     浏览排行榜
                 </a>
-                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item">Morbi leo risus</a>
-                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item">Vestibulum at eros</a>
-            </div>
-
-
-            <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    关注排行榜
-                </a>
-                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item">Morbi leo risus</a>
-                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item">Vestibulum at eros</a>
+                {foreach $liulan as $x}
+                <a href="index.php?m=index&f=index&a=show&id={$x['sid']}" class="list-group-item">{$x["stitle"]}  (浏览量：{$x["hits"]})</a>
+                {/foreach}
             </div>
         </div>
     </div>
 </div>
 
 
-<div class="footer">
-	
-</div>
+
 
 	</body>
 </html>

@@ -4,9 +4,17 @@
 <link rel="stylesheet" href="{CSS_PATH}/index/self.css">
 <script src="{JS_PATH}/admin/jquery.min.js"></script>
 <script src="{JS_PATH}/index/self.js"></script>
+<style>
+	.mui-media{
+		max-height: 110px;
+	}
+	span{
+		cursor: pointer!important;
+	}
+</style>
 <div class="container main">
     <div class="row">
-        <div class="col-sm-8 main-left">
+        <div class="col-sm-8 main-left mainLeft" style="border-right: 0;margin-left:140px;">
             <!--头像部分-->
             <div class="container-fluid">
                 <div class="row touxiang">
@@ -38,33 +46,31 @@
 	                </div>
                     <div class="col-sm-2 photoes">
                     	{if $self=="yes"}
-                        <a href="">关注 ></a><span>1</span>
+		                    <span class="guanzhu">已关注 ></span><span>{count($result7)-1}</span>
                         {elseif $self=="no"}
-                         <a href="">对方关注 ></a><span>1</span>
+	                        <span>对方关注 ></span><span>{count($result8)-1}</span>
                         {/if}
                     </div>
                     <div class="col-sm-2 photoes">
                     	{if $self=="yes"}
-                        <a href="">粉丝 ></a><span>1</span>
+                        <span class="fensi">粉丝 ></span><span>{count($result9)}</span>
                         {elseif $self=="no"}
-                        <a href="">对方粉丝 ></a><span>1</span>
+                        <span>对方粉丝 ></span><span>{count($result9)}</span>
                         {/if}
                         
                     </div>
                     <div class="col-sm-2 photoes">
                     	{if $self=="yes"}
-                    		{$j=0}
-	                    	{foreach $result as $a}
-	                        {$j=$j+1}
-	                        {/foreach}
-                    	<a href="">文章 ></a><span>{$j}</span>
+	                    	
+                    	<span class="wenzhang" uid="{$uid}">文章 ></span><span>{count($result)}</span>
                         {elseif $self=="no"}
-                        <a href="">对方文章 ></a><span>1</span>
+                       
+                        <span class="otherwenzhang" uid="{$result5[0]['uid']}">对方文章 ></span><span>{count($result5)}</span>
                         {/if}
                     </div>
                     <div class="col-sm-2 photoes">
                     	{if $self=="yes"}
-                       	<a href="">留言 ></a> <span>1</span>
+                       	<a href="">留言 ></a> <span>{count($result11)}</span>
                         {elseif $self=="no"}
                        
                         {/if}
@@ -80,19 +86,19 @@
                     <div class="col-sm-4">
                     	{if $self=="yes"}
                         <span class="wenzhang" uid="{$uid}">已发表的文章</span>
-                        {$i=0}
-                        {foreach $result as $v}
-                        {$i=$i+1}
-                        {/foreach}
-                        <span>{$i}</span>
+                        <span>{count($result)}</span>
                         {elseif $self=="no"}
                        
                         {/if}
                     </div>
                      <div class="col-sm-4">
                     	{if $self=="yes"}
-                        <span>我的收藏</span>
-                        <span>1</span>
+                    	{$n=0}
+                        {foreach $result4 as $c}
+                        {$n=$n+1}
+                        {/foreach}
+                        <span class="shoucang">我的收藏</span>
+                        <span>{$n}</span>
                         {elseif $self=="no"}
                        
                         {/if}
@@ -100,7 +106,8 @@
                     </div>
                     <div class="col-sm-4">
                     	{if $self=="yes"}
-                    	<span>文章审核情况</span>	
+                    	<span class="shenhe">文章审核情况</span>	
+                    	<span>{count($result10)}</span>
                         {elseif $self=="no"}
                        
                         {/if}
@@ -122,49 +129,26 @@
 
             <!--具体的内容-->
 
-            <ul class="mui-table-view NR">
-                <!--<li class="mui-table-view-cell mui-media">
-                    <a href="javascript:;">
+            <ul class="mui-table-view NR" style="background: rgba(0,0,0,0);">
+            	{if $self=="yes"}
+            	{foreach $result as $v}
+            	<li class="mui-table-view-cell mui-media">
+                    <a href="index.php?m=index&f=index&a=show&id={$v['sid']}">
                         <div class="mui-media-body">
-                        	<span class="stitle"></span>
-                            <p class="mui-ellipsis scon">1111111111111111</p>
+                        	<span class="stitle">{$v["stitle"]}</span>
+                            <p class="mui-ellipsis scon">{$v["scon"]}</p>
                         </div>
                     </a>
                 </li>
-                <li class="mui-table-view-cell mui-media">
-                    <a href="javascript:;">
-                        <div class="mui-media-body">
-                        	<span class="stitle"></span>
-                            <p class="mui-ellipsis scon">2222222222222222</p>
-                        </div>
-                    </a>
-                </li>-->
+                {/foreach}
+                {elseif $self=="no"}
+            	{/if}
             </ul>
-
-
+            		
+	
+			
         </div>
-        <div class="col-sm-4 main-right">
-            <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    浏览排行榜
-                </a>
-                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item">Morbi leo risus</a>
-                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item">Vestibulum at eros</a>
-            </div>
-
-
-            <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    关注排行榜
-                </a>
-                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item">Morbi leo risus</a>
-                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item">Vestibulum at eros</a>
-            </div>
-        </div>
+       
     </div>
 </div>
 	</body>

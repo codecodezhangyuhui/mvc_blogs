@@ -75,15 +75,53 @@
 				echo HTTP_URL."/upload/".$showtime."/".$time.$name;
 			}
 		}
-		//ajax 
-		function ajax(){
+		//发表的文章 
+		function wenzhang(){
 			$uid=G("uid");
 			$db=new db("shows");
-			$result=$db->where("uid=".$uid)->select();
+			$result=$db->where("uid=".$uid." and status=3")->select();
 			echo json_encode($result);
 		}
-		
-		
-		
+		//文章审核情况
+		function shenhe(){
+			$uid=G("uid");
+			$db=new db("shows");
+			$result=$db->where("uid=".$uid." and status!=3")->select();
+			echo json_encode($result);
+		}
+		//收藏的内容
+		function shoucang(){
+			$uid=G("uid");
+			$db=new db("love");
+			$result=$db->where("uid=".$uid)->select();
+			
+			$db1=new db("shows");
+			foreach($result as $v){
+				$result1[]=$db1->where("sid=".$v["sid"])->select();
+			}
+			echo json_encode($result1);
+		}
+		//关注
+		function guanzhu(){
+			$uid=G("uid");
+			$db=new db("guanzhu");
+			$result=$db->where("uid1=".$uid)->select();
+			$db1=new db("user");
+			foreach($result as $v){
+				$result1[]=$db1->where("uid=".$v["uid2"])->select();
+			}
+			echo json_encode($result1);
+		}
+		//粉丝
+		function fensi(){
+			$uid=G("uid");
+			$db=new db("guanzhu");
+			$result=$db->where("uid2=".$uid)->select();
+			$db1=new db("user");
+			foreach($result as $v){
+				$result1[]=$db1->where("uid=".$v["uid1"])->select();
+			}
+			echo json_encode($result1);
+		}
 	}
 ?>

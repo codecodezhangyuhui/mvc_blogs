@@ -18,6 +18,11 @@
 	                {$result["stime"]}
 	            </span>
             </span>
+            <span class="time">点击量:
+	            <span class="date">
+	                {$result["hits"]}
+	            </span>
+            </span>
         </h1>
         
         <div class="line"></div>
@@ -61,145 +66,141 @@
         
 
         <div class="submit submit1 leave">
-	        <textarea  class="form-control" rows="3"></textarea>
-	        <a href="javascript:;" class="btn btn-primary">留言</a>
-	        <a href="javascript:;" class="btn btn-danger">取消</a>
+	        <textarea  class="form-control mcon" rows="3"></textarea>
+	        <a href="javascript:;" class="btn btn-primary messageBtn">留言</a>
+	        <a href="javascript:;" class="btn btn-danger quxiaohuifu">取消</a>
         </div>
-
+<!--留言部分-->
         <div class="message">
-            <h3>共有<span>5</span>条留言</h3>
+            <div class="line2"></div> 
+            <div class="liuyanbox" style="display: none;">
+                <div class="liuyan">
+	                <div class="userinfo">
+	                    <div class="phone">
+						 	<img src="" alt="" style="width:40px;height:40px"/>
+	                    </div>
+	                    <div class="info">
+		                    <div class="name">xxxxx</div>
+		                    <div class="time">2000-20-20</div>
+	                    </div>
+	                </div>
+	                <div class="liuyancon">
+	                   111
+	                </div>
+                	<a href="javascript:;" class="btn btn-default replyBtn replyBtn1">回复1</a>
+	                <div class="submit submit2">
+		                <textarea  class="form-control" rows="3"></textarea><br>
+		                <a href="javascript:;" class="btn btn-primary">回复</a>
+		                <a href="javascript:;" class="btn btn-danger quxiaohuifu">取消</a>
+	            	</div>
+            	</div>
+	            <div class="reply">
+	                <div class="replylist">
+	                    <div class="replycon">
+	                    	<div class="phone">
+								<img src="" alt="" style="width:40px;height: 40px;" id="touxiang"/>
+	                    	</div>
+	                       <div class="xinxi">
+	                    		<span class="name">xxxx:</span>
+	                       	 	<div class="time time1">2000-22-22</div>
+	                    	</div>
+	                        <div class="replyinfo">
+			                    
+	                        </div>
+	                    </div>
+		                <div class="replystate">
+		                    <a href="javascript:;" class="btn btn-default replyBtn replyBtn2" >回复2</a>
+		                </div>
+	            	</div>
+	            	<div class="submit submit2">
+		                <textarea  class="form-control" rows="3"></textarea><br>
+		                <a href="javascript:;" class="btn btn-primary">回复</a>
+		                <a href="javascript:;" class="btn btn-danger quxiaohuifu">取消</a>
+	           		</div>
+	          	</div>
+        	</div>
+			
+			{if count($result4)<1}
+			<h3>没有<span></span>留言</h3>
+			{else}
+			<h3>共有<span>{count($result4)}</span>条留言</h3>
+			{foreach $result4 as $v}
+			{if $v["pid"]==0}
             <div class="line2"></div> 
             <div class="liuyanbox">
                 <div class="liuyan">
-                <div class="userinfo">
-                    <div class="phone">
-					头像
-                    </div>
-                    <div class="info">
-	                    <div class="name1">xxxxx</div>
-	                    <div class="time">2000-20-20</div>
-                    </div>
-                </div>
-                <div class="liuyancon">
-                    <p>sakjd</p>
-                    <p>sakjd</p>
-                    <p>sakjd</p>
-                    <p>sakjd</p>
-                </div>
-                <a href="javascript:;" class="btn btn-default replyBtn replyBtn1">回复1</a>
+	                <div class="userinfo">
+	                    <div class="phone">
+							<img src="{$v['photo']}" alt="" style="width:40px;height:40px"/>
+	                    </div>
+	                    <div class="info">
+	                    	{if $v["bname"]}
+	                    	<div class="name">{$v["bname"]}</div>
+	                    	{else}
+		                    <div class="name">{$v["uname"]}</div>
+		                    {/if}
+		                    <div class="time">{$v["mtime"]}</div>
+	                    </div>
+	                </div>
+	                <div class="liuyancon">
+	                   {$v["mcon"]}
+	                </div>
+                	<a href="javascript:;" class="btn btn-default replyBtn replyBtn1" uid2="{$v['uid1']}" pid="{$v['mid']}">回复1</a>
+	                <div class="submit submit2">
+		                <textarea  class="form-control" rows="3"></textarea><br>
+		                <a href="javascript:;" class="btn btn-primary replyBtn3">回复</a>
+		                <a href="javascript:;" class="btn btn-danger quxiaohuifu">取消</a>
+	            	</div>
+	            </div>
             </div>
-            <div class="submit submit2">
-                <textarea  class="form-control" rows="3"></textarea><br>
-                <a href="javascript:;" class="btn btn-primary">回复</a>
-                <a href="javascript:;" class="btn btn-danger">取消</a>
-            </div>
-            
+         	{/if}
+         	{if count($son)>1}
+         	{foreach $son as $v1}
+         	{if $v1}
+         	{if $v1["pid"]==$v["mid"]}
             <div class="reply">
                 <div class="replylist">
                     <div class="replycon">
                     	<div class="phone">
-							头像
+							<img src="{$v1['photo']}" alt="" style="width:40px;height: 40px;" id="touxiang"/>
                     	</div>
-                       <div class="xinxi">
-                    		<span class="name1">xxxx:</span>
-                       	 	<div class="time time1">2000-22-22</div>
+                        <div class="xinxi">
+                        	{if $v1["bname"]}
+                        	<span class="name">{$v1['bname']}</span>
+                        	{else}
+                    		<span class="name">{$v1['uname']}</span>
+                    		{/if}
+                       	 	<div class="time">{$v1["mtime"]}</div>
                     	</div>
                         <div class="replyinfo">
-		                    gsdgdfsd
-		                    fhdfhdfhdf
-		                    ddbgdgsgs
+		                   {$v1["mcon"]}
                         </div>
                     </div>
 	                <div class="replystate">
-	                    
-	                    <a href="javascript:;" class="btn btn-default replyBtn replyBtn2">回复2</a>
+	                    <a href="javascript:;" class="btn btn-default replyBtn replyBtn2" uid2="{$v1['uid1']}" pid="{$v['mid']}">回复2</a>
 	                </div>
             	</div>
+            	<div class="submit submit2">
+	                <textarea  class="form-control" rows="3"></textarea><br>
+	                <a href="javascript:;" class="btn btn-primary replyBtn3">回复</a>
+	                <a href="javascript:;" class="btn btn-danger quxiaohuifu">取消</a>
+           		</div>
           	</div>
+          	{/if}
+          	{/if}
+          	{/foreach}
+          	{/if}
+          	{/foreach}
+          	{/if}
+          	
+          	
+        </div>
 
-            <div class="submit submit2">
-                <textarea  class="form-control" rows="3"></textarea><br>
-                <a href="javascript:;" class="btn btn-primary">回复</a>
-                <a href="javascript:;" class="btn btn-danger">取消</a>
-            </div>
-            
-              
-            <!---->
-            <div class="line2"></div> 
-			<div class="liuyanbox">
-                <div class="liuyan">
-                <div class="userinfo">
-                    <div class="phone">
-					头像
-                    </div>
-                    <div class="info">
-	                    <div class="name">xxxx</div>
-	                    <div class="time">2000-20-20</div>
-                    </div>
-                </div>
-                <div class="liuyancon">
-                    <p>sakjd</p>
-                    <p>sakjd</p>
-                    <p>sakjd</p>
-                    <p>sakjd</p>
-                </div>
-                <a href="javascript:;" class="btn btn-default replyBtn replyBtn1">回复1</a>
-            </div>
-             <div class="submit submit2">
-                <textarea  class="form-control" rows="3"></textarea><br>
-                <a href="javascript:;" class="btn btn-primary ">回复</a>
-                <a href="javascript:;" class="btn btn-danger">取消</a>
-            </div>
-            
-            <div class="reply">
-                <div class="replylist">
-                    <div class="replycon">
-                    	<div class="phone">
-							头像
-                    	</div>
-                    	<div class="xinxi">
-                    		<span class="name1">xxxx:</span>
-                       	 	<div class="time time1">2000-22-22</div>
-                    	</div>
-                        
-                        <div class="replyinfo">
-		                    gsdgdfsd
-		                    fhdfhdfhdf
-		                    ddbgdgsgs
-                        </div>
-                    </div>
-	                <div class="replystate">
-	                    
-	                    <a href="javascript:;" class="btn btn-default replyBtn replyBtn2">回复2</a>
-	                </div>
-            	</div>
-          	</div>
 
-              <div class="submit submit2">
 
-                  <textarea  class="form-control" rows="3"></textarea><br>
-                  <a href="javascript:;" class="btn btn-primary">回复</a>
-                  <a href="javascript:;" class="btn btn-danger">取消</a>
-              </div>              
-              
-              
-              
-              
-              
-              
-              
-          </div>
-          
-        
-          
-          
-          
-          
-          
 
-      </div>
 
-  </div>
+    </div>
 
    <div class="mask">
 

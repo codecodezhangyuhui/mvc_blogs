@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-03-12 11:01:42
+/* Smarty version 3.1.30, created on 2017-03-13 13:52:23
   from "E:\wamp\www\mvc\template\index\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58c51c86bc10e0_25867074',
+  'unifunc' => 'content_58c69607b72851_46077841',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'df5460efe0fe5a7076b131b0548a590aed651ca6' => 
     array (
       0 => 'E:\\wamp\\www\\mvc\\template\\index\\index.html',
-      1 => 1489312901,
+      1 => 1489409538,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:index/header.html' => 1,
   ),
 ),false)) {
-function content_58c51c86bc10e0_25867074 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58c69607b72851_46077841 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:index/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -55,9 +55,9 @@ $_smarty_tpl->_subTemplateRender("file:index/header.html", $_smarty_tpl->cache_i
 		cursor: pointer;
 	}
 </style>
-<div class="mui-slider banner">
+<!--<div class="mui-slider banner">
     <div class="mui-slider-group mui-slider-loop imgSize">
-	    <!--支持循环，需要重复图片节点-->
+	  
 	    <div class="mui-slider-item mui-slider-item-duplicate imgSize"><a href="#"><img src="<?php echo IMG_PATH;?>
 /banner1.jpeg" alt="" /></a></div>
 	    <div class="mui-slider-item imgSize"><a href="#"><img src="<?php echo IMG_PATH;?>
@@ -68,11 +68,11 @@ $_smarty_tpl->_subTemplateRender("file:index/header.html", $_smarty_tpl->cache_i
 /banner4.jpeg" alt="" /></a></div>
 	    <div class="mui-slider-item imgSize"><a href="#"><img src="<?php echo IMG_PATH;?>
 /banner5.jpeg" alt="" /></a></div>
-	    <!--支持循环，需要重复图片节点-->
+	  
 	    <div class="mui-slider-item mui-slider-item-duplicate imgSize"><a href="#"><img src="<?php echo IMG_PATH;?>
 /banner1.jpeg" alt="" /></a></div>
     </div>
-</div>
+</div>-->
 <!--文章动态-->
 <div class="container main">
     <div class="row">
@@ -97,9 +97,15 @@ foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
 	                 		<?php }?>
 	                    </div>
 	                    <div class="col-sm-2 photoes username">
+	                    	<?php if ($_smarty_tpl->tpl_vars['v']->value["bname"]) {?>
+	                        <a href="index.php?m=index&f=index&a=you&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['uid'];?>
+"><?php echo $_smarty_tpl->tpl_vars['v']->value["bname"];?>
+</a>
+	                        <?php } else { ?>
 	                        <a href="index.php?m=index&f=index&a=you&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['uid'];?>
 "><?php echo $_smarty_tpl->tpl_vars['v']->value["uname"];?>
 </a>
+	                        <?php }?>
 	                    </div>
 	                    <div class="col-sm-2 photoes times">
 	                       <span><?php echo $_smarty_tpl->tpl_vars['v']->value["stime"];?>
@@ -112,9 +118,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
 	                <li class="mui-table-view-cell mui-media">
 	                    <a href="index.php?m=index&f=index&a=show&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['sid'];?>
 ">
-	                        <!--<img class="mui-media-object mui-pull-right " src="http://placehold.it/40x30">-->
 	                        <div class="mui-media-body">
-	                       		 <span class="stitle"><?php echo $_smarty_tpl->tpl_vars['v']->value["stitle"];?>
+	                       		<span class="stitle"><?php echo $_smarty_tpl->tpl_vars['v']->value["stitle"];?>
 </span>
 	                            <p class="mui-ellipsis scon" ><?php echo $_smarty_tpl->tpl_vars['v']->value["scon"];?>
 </p>
@@ -138,30 +143,28 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                 <a href="#" class="list-group-item active">
                     浏览排行榜
                 </a>
-                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item">Morbi leo risus</a>
-                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item">Vestibulum at eros</a>
-            </div>
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['liulan']->value, 'x');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['x']->value) {
+?>
+                <a href="index.php?m=index&f=index&a=show&id=<?php echo $_smarty_tpl->tpl_vars['x']->value['sid'];?>
+" class="list-group-item"><?php echo $_smarty_tpl->tpl_vars['x']->value["stitle"];?>
+  (浏览量：<?php echo $_smarty_tpl->tpl_vars['x']->value["hits"];?>
+)</a>
+                <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
 
-
-            <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    关注排行榜
-                </a>
-                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item">Morbi leo risus</a>
-                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item">Vestibulum at eros</a>
             </div>
         </div>
     </div>
 </div>
 
 
-<div class="footer">
-	
-</div>
+
 
 	</body>
 </html>

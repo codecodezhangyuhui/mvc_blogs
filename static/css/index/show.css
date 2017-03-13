@@ -34,7 +34,9 @@ span{
     float:left;width:40px;height:40px;
     border:1px solid #000;
     border-radius: 50%;
+    overflow: hidden;
 }
+
 .liuyan .userinfo .info{
     float:left;margin-left:10px;
 }

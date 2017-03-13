@@ -16,8 +16,6 @@ window.onload=function(){
 	if(imgurl.value==""){
 		imgurl.value=img.getAttribute("src");
 	}
-		
-		
 	
 	
 }
