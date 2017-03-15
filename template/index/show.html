@@ -10,7 +10,11 @@
           <br>
             <span class="author">作者:
 		        <span class="name author-name" uid2="{$result['uid']}" sid="{$result['sid']}">
+		        	{if $result["bname"]}
+		        	{$result["bname"]}
+		        	{else}
 					{$result["uname"]}
+					{/if}
 		        </span>
             </span>
             <span class="time">时间:

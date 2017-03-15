@@ -13,10 +13,12 @@
 				$result3=$db1->where("uid=".$uid)->select();
 				$this->smarty->assign("result3",$result3[0]);
 			}
-			
+			//点击量
 			$liulan=$this->db->select("select * from shows where status=3 order by hits desc limit 0,5");
 			$this->smarty->assign("liulan",$liulan);
-
+			//点赞
+			$dianzan=$this->db->where("status=3")->select();
+			$this->smarty->assign("dianzan",$dianzan);
 			
 			$this->smarty->assign("uname",$this->session->get("uname"));
 			$this->smarty->display("index/index.html");

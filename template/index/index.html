@@ -54,6 +54,7 @@
 	                    <div class="col-sm-2 photoes times">
 	                       <span>{$v["stime"]}</span>
 	                    </div>
+	                    
 	                </div>
 	            </div>
 	            <!--具体的内容-->
@@ -67,7 +68,16 @@
 	                    </a>
 	                </li>
 	            </ul>
+	            {$i=0}
+	            {foreach $dianzan as $x}
+	            {if $x["sid"]==$v["sid"]}
+	            {$i=$x["good"]}
+	            {/if}
+	            {/foreach}
+            	<a href="javascript:;" class="btn btn-success dianzan" sid="{$v['sid']}" style="margin:10px 560px">点赞<span>{$i}</span></a>
+            	
             </div>
+            
             {/foreach}
         </div>
         
@@ -88,6 +98,9 @@
 
 
 
-
+   <div class="mask">
+   </div>
+   {include file="index/notice.html"}
+   <div class="notice">操作成功</div>
 	</body>
 </html>

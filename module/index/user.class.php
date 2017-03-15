@@ -1,6 +1,6 @@
 <?php
 	class user extends indexMain{
-		function user(){
+		function __construct(){
 	        parent::__construct();
 	        $this->checkLogin();
 	        $this->db=new db("user");
@@ -122,6 +122,27 @@
 				$result1[]=$db1->where("uid=".$v["uid1"])->select();
 			}
 			echo json_encode($result1);
+		}
+		//点赞
+		function dianzan(){
+			$sid=G("sid");
+			if($this->session->get("uid")){
+				$uid=$this->session->get("uid");
+				$result=$this->db->select("select * from dianzan where uid='$uid' and sid='$sid'");
+				if(count($result)<1){
+					$db1=new db("dianzan");
+					$result1=$db1->insert("uid='$uid';sid='$sid'");
+					if($result1>0){
+						if($this->db->update("update shows set good=good+1 where sid=".$sid)){
+							echo "yes";
+						}
+					}
+				}else{
+					echo "dianguo";
+				}
+			}else{
+				echo "no";
+			}
 		}
 	}
 ?>
